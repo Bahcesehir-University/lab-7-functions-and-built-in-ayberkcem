@@ -23,7 +23,54 @@ using namespace std;
 //  SECTION 1 – WARM-UP  (~ 5 min)
 //  Goal: quickly recall variables, cin, cout, and arithmetic.
 // ============================================================
-
+ 
+ 
+ double celsiusToFahrenheit(double celsius)
+    {
+        double fahrenheit = (celsius * 9.0 / 5.0) + 32;
+        return fahrenheit;
+    }
+ 
+ bool isPrime(int number)
+{
+    if(number <= 1) return false;
+    
+    for (int i = 2; i <= sqrt((double)number) ; i++){
+    if (number % i == 0) return false;    
+    
+    }
+    return true;
+}
+ 
+ 
+ int maxOfThree(int a,int b,int c){
+     int maxValue = a ;
+     if(b > maxValue ) maxValue = b;
+     if(c > maxValue ) maxValue = c;
+return maxValue;
+ }
+ 
+ 
+ double average(double arr[] , int size){
+     double sum = 0.0;
+     for (int i = 0; i<size ; i++){
+         sum += arr[i];
+     }
+     return sum / size;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 int main()
 {
     // ----------------------------------------------------------
@@ -32,7 +79,6 @@ int main()
     // using the formula:  area = 3.14159 * r * r
     // Print the result.
     // ----------------------------------------------------------
-
     double radius;
     const double PI = 3.14159;
 
@@ -41,6 +87,11 @@ int main()
     // TODO: Ask the user to enter the radius
     // TODO: Read the radius into the variable 'radius'
     // TODO: Compute the area and print it
+   cout << "Enter the Radius: ";
+   cin >> radius;
+       double area = radius * radius * PI;
+cout << "Area of circle is  " << area << endl;
+   
 
 
 
@@ -91,14 +142,36 @@ int main()
     //  round(17.5) = ...
     // ----------------------------------------------------------
 
-    double val = 17.5;
+
+
+
+
+
+
+
+double val = 17.5;
 
     cout << "\n=== Built-in Functions ===" << endl;
 
+
+    
+cout << "Our value is " << val << endl;
+    
     // TODO: Print sqrt of val
+    int sqrtresult = sqrt(val);
+        cout << "Square root of value is --> " << sqrt(val) << endl;
+
     // TODO: Print ceil of val
+        int ceilresult = ceil(val);
+    cout << "Rounding of it to highest near number is --> " << ceil(val) << endl;
+
     // TODO: Print floor of val
+        int floorresult = floor(val);
+    cout << "Rounding of it to lowest near number is --> " << floor(val) << endl;
+
     // TODO: Print round of val
+    int roundresult = round(val);
+    cout << "Rounding of value --> "<< round(val) << endl;
 
 
 
@@ -121,11 +194,15 @@ int main()
     // ----------------------------------------------------------
 
     double celsius;
+
     cout << "\n=== Temperature Converter ===" << endl;
 
     // TODO: Ask the user for a Celsius value and read it
     // TODO: Call celsiusToFahrenheit and print the result
-
+    
+cout << "Enter a temperature in Celsius: ";
+cin >> celsius;
+cout << celsius << " C = " << celsiusToFahrenheit(celsius) << " F" << endl;
 
 
 
@@ -148,7 +225,13 @@ int main()
     // TODO: Call isPrime and print "X is prime" or "X is not prime"
 
 
-
+cout << "Enter an integer : ";
+cin >> number;
+if(isPrime(number)){
+    cout << number << " is  prime." << endl;
+}else{
+    cout << number << " is not prime." << endl; 
+}
 
     // ----------------------------------------------------------
     // Exercise 3-C : maxOfThree
@@ -165,7 +248,9 @@ int main()
 
     // TODO: Ask the user for three integers and read them
     // TODO: Call maxOfThree and print the result
-
+cout << "Enter three integers: ";
+cin >> x >> y >> z;
+cout << "Maximum = " << maxOfThree(x,y,z) << endl;
 
 
 
@@ -199,8 +284,15 @@ int main()
     // TODO: Read 5 values from the user into the array
     // TODO: Call average() and store the result
     // TODO: Print the average, sqrt of average, and rounded average
-
-
+cout << " Enter " << SIZE << " numbers : " << endl;
+for (int i = 0 ; i < SIZE ; i++){
+    cout << " [ " << i + 1 << " ]: ";
+    cin >> grades[i];
+}
+double avg = average(grades , SIZE);
+cout << "Average = " << avg << endl;
+cout << " sqrt(average) = " << sqrt(avg) << endl;
+cout << "Rounded(2 decimals) = " << round(avg * 100.0) / 100.0 << endl;
 
 
     cout << "\n=== Lab Complete! ===" << endl;
